@@ -1,0 +1,22 @@
+print "Starting maya loading and fbx conversion \n";
+	
+if (`file -q -exists "F:/DATAD~1/01KULI~1/##GKM/KOSTSI~1/##GitHub/KOSTSI~1/KOSTSI~1.25F/Assets/RESOUR~1/3D/CHARAC~1/CHOPPE~1/Model/chopper.mb"`)
+{		
+	file -o "F:/DATAD~1/01KULI~1/##GKM/KOSTSI~1/##GitHub/KOSTSI~1/KOSTSI~1.25F/Assets/RESOUR~1/3D/CHARAC~1/CHOPPE~1/Model/chopper.mb";
+	FBXExportEmbeddedTextures -v false;
+	// FBXExportHardEdges -v true;
+	FBXExportApplyConstantKeyReducer -v false;
+	FBXExportShowUI -v false;
+
+	print "Before fbx export\n";
+	FBXExport -f "F:/DATAD~1/01KULI~1/##GKM/KOSTSI~1/##GitHub/KOSTSI~1/KOSTSI~1.25F/Temp/ExportedFBXFile.fbx";
+	print "after fbx export\n";
+}
+else
+	print "Could not open Maya file.";
+
+sysFile -delete "F:/DATAD~1/01KULI~1/##GKM/KOSTSI~1/##GitHub/KOSTSI~1/KOSTSI~1.25F/Temp/CommandPipe";
+
+$donepipeKill = `fopen "F:/DATAD~1/01KULI~1/##GKM/KOSTSI~1/##GitHub/KOSTSI~1/KOSTSI~1.25F/Temp/SyncPipeKill" "w"`;
+fwrite $donepipeKill "Done";
+fclose $donepipeKill;
