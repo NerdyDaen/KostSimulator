@@ -16,6 +16,8 @@ public class PlayerActive : MonoBehaviour
     public float upLimit = -50;
     public float downLimit = 50;
     Vector3 moveDirection;
+    private AudioSource playerAudio;
+    public bool IsMoving;
 
     [Header("Animation Settings")]
     public string AnimationWalkingState;
@@ -26,9 +28,11 @@ public class PlayerActive : MonoBehaviour
     public IInteractable Interactable { get; set; }
     public bool IsSelecting;
 
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.None; Cursor.visible = true;
+        playerAudio = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -41,7 +45,6 @@ public class PlayerActive : MonoBehaviour
     }
     void PlayerMovement()
     {
-
         //Interacrive environment 
         Shader.SetGlobalVector("_PositionMoving", transform.position);
 
@@ -66,7 +69,7 @@ public class PlayerActive : MonoBehaviour
         else VerticalSpeed -= Gravity * Time.deltaTime;
         Vector3 gravityMove = new Vector3(0, VerticalSpeed, 0);
 
-        //buat variabel untuk maju ke depa
+        //buat variabel untuk maju ke depan
         Vector3 move = TargetPlayer.transform.forward * verticalMove + TargetPlayer.transform.right * horizontalMove;
 
         //if (Input.GetButton("Jump")) move.y = JumpSpeed;
@@ -79,5 +82,19 @@ public class PlayerActive : MonoBehaviour
         //{
         //    TargetAnimator.SetTrigger("Jump");
         //}
+
+        if (horizontalMove != 0 || verticalMove != 0)
+        {
+            IsMoving = true;
+            if (!playerAudio.isPlaying)
+            {
+                playerAudio.Play();
+            }
+        }
+        else
+        {
+            IsMoving = false;
+            playerAudio.Stop();
+        }
     }
 }
