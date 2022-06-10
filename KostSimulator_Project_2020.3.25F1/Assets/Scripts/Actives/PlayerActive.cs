@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerActive : MonoBehaviour
 {
+    public static AudioSoundManager instance;
+
     [Header("Movement Settings")]
     public CharacterController TargetPlayer;
     public Camera TargetCamera;
@@ -17,6 +19,7 @@ public class PlayerActive : MonoBehaviour
     public float downLimit = 50;
     Vector3 moveDirection;
     private AudioSource playerAudio;
+    public AudioClip Click;
     public bool IsMoving;
 
     [Header("Animation Settings")]
@@ -27,7 +30,6 @@ public class PlayerActive : MonoBehaviour
     public DialogueUI DialogueUI => dialogueUI;
     public IInteractable Interactable { get; set; }
     public bool IsSelecting;
-
 
     void Start()
     {
@@ -41,6 +43,7 @@ public class PlayerActive : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             Interactable?.Interact(this);
+            playerAudio.PlayOneShot(Click);
         }
     }
     void PlayerMovement()
