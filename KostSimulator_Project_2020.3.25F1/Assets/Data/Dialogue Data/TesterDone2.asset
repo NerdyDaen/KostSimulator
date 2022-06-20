@@ -19,3 +19,5 @@ MonoBehaviour:
     dialogueObject: {fileID: 11400000, guid: be89475615ca6064bb4b2351ce1c4a7d, type: 2}
   - responseText: Tunggu!
     dialogueObject: {fileID: 11400000, guid: 9630407dbcfedc44f8a15a2655a9f07f, type: 2}
+  speaker: CHOPPER
+  imageSpeaker: {fileID: 21300000, guid: 13350d5f9fd3a6442b46bc9f6ab42ddb, type: 3}

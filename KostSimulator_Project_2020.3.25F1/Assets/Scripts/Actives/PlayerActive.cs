@@ -42,7 +42,7 @@ public class PlayerActive : MonoBehaviour
         PlayerMovement();
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Interactable?.Interact(this);
+            //Interactable?.Interact(this);
             playerAudio.PlayOneShot(Click);
         }
     }
