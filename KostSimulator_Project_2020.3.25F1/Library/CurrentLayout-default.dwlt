@@ -122,7 +122,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 18004, y: 14042}
   vertical: 0
-  controlID: 192
+  controlID: 74
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_MinSize: {x: 333, y: 271}
   m_MaxSize: {x: 14003, y: 10021}
   vertical: 0
-  controlID: 160
+  controlID: 155
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -450,8 +450,8 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 46400000
-      m_LastClickedID: 16454
+      m_SelectedIDs: 02530000
+      m_LastClickedID: 21250
       m_ExpandedIDs: 6efbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -877,22 +877,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Events
+    - Assets/Scripts/Actives
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts/Events
+  - Assets/Scripts/Actives
   m_LastFoldersGridSize: 16
   m_LastProjectPath: F:\Data D\01 Kuliah\##GKM\Kost Simulator\##GitHub\KostSimulator\KostSimulator_Project_2020.3.25F1
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 121}
-    m_SelectedIDs: 8eec0000
-    m_LastClickedID: 60558
-    m_ExpandedIDs: 0000000044ec000046ec000048ec00004aec000056ec00005aec00005cec000000ca9a3b
+    m_SelectedIDs: 72ec0000
+    m_LastClickedID: 60530
+    m_ExpandedIDs: 000000004aec00004cec00004eec000050ec000052ec000054ec000056ec000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -920,7 +920,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 147.39996}
     m_SelectedIDs: 5e430000
     m_LastClickedID: 17246
-    m_ExpandedIDs: 0000000044ec000046ec000048ec00004aec00004cec00004eec000050ec000052ec000054ec000056ec000058ec00005aec00005cec0000
+    m_ExpandedIDs: 000000004aec00004cec00004eec000050ec000052ec000054ec000056ec0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1028,7 +1028,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 16454
+  m_LastSelectedObjectID: 21250
 --- !u!114 &23
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1061,7 +1061,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 744.8
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_LockTracker:
     m_IsLocked: 0

@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float rotationSpeed;
-    [SerializeField] private float jumpSpeed;
+    [SerializeField] private float jumpHeight;
+    [SerializeField] private float gravityMultiplier;
     [SerializeField] private float jumpHorizontalSpeed;
     [SerializeField] private float jumpButtonGracePeriod;
     [SerializeField] private Animator animator;
@@ -57,7 +58,8 @@ public class PlayerMovement : MonoBehaviour
         movementDirection.Normalize();
 
         #region Jump
-        ySpeed += Physics.gravity.y * Time.deltaTime;
+        float gravity = Physics.gravity.y * gravityMultiplier;
+        ySpeed += gravity * Time.deltaTime;
 
         if (characterController.isGrounded)
         {
@@ -83,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (Time.time - jumpButtonPressedTime <= jumpButtonGracePeriod)
             {
-                ySpeed = jumpSpeed;
+                ySpeed = Mathf.Sqrt(jumpHeight * -3 * gravity);
                 //JUMPING CONDITION
                 animator.SetBool("IsJumping", true);
                 isJumping = true;
