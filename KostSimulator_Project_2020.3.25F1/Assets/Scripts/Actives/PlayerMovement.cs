@@ -59,6 +59,12 @@ public class PlayerMovement : MonoBehaviour
 
         #region Jump
         float gravity = Physics.gravity.y * gravityMultiplier;
+
+        if (isJumping && ySpeed > 0 && Input.GetButton("Jump") == false)
+        {
+            gravity *= 2;
+        }
+
         ySpeed += gravity * Time.deltaTime;
 
         if (characterController.isGrounded)
