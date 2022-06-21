@@ -73,6 +73,8 @@ public class PlayerMovement : MonoBehaviour
         {
             characterController.stepOffset = originalStepOffset;
             ySpeed = -0.5f;
+
+            //GROUNDED CONDITION
             animator.SetBool("IsGrounded", true);
             isGrounded = true;
             animator.SetBool("IsJumping", false);
@@ -82,6 +84,7 @@ public class PlayerMovement : MonoBehaviour
             if (Time.time - jumpButtonPressedTime <= jumpButtonGracePeriod)
             {
                 ySpeed = jumpSpeed;
+                //JUMPING CONDITION
                 animator.SetBool("IsJumping", true);
                 isJumping = true;
                 jumpButtonPressedTime = null;
