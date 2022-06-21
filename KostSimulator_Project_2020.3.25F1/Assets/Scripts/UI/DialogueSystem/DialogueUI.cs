@@ -12,6 +12,7 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private Button buttonNextDialogue;
     [SerializeField] private AudioSource buttonAudio;
     [SerializeField] private GameObject triangleNext;
+    [SerializeField] private GameObject otherUI;
     [SerializeField] public string? nextScene;
     //[SerializeField] private DialogueObject testDialogue;
 
@@ -38,6 +39,7 @@ public class DialogueUI : MonoBehaviour
 
     public void ShowDialogue(DialogueObject dialogueObject)
     {
+        otherUI.SetActive(false);
         IsOpen = true;
         dialogueBox.SetActive(true);
         string speaker = dialogueObject.speaker;
@@ -103,6 +105,7 @@ public class DialogueUI : MonoBehaviour
 
     public void CloseDialogueBox()
     {
+        otherUI.SetActive(true);
         IsClicked = false;
         IsOpen = false;
         dialogueBox.SetActive(false);
