@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public DialogueUI DialogueUI => dialogueUI;
     public AudioClip Click;
 
+    private Player playerInput;
     private CharacterController characterController;
     private AudioSource playerAudio;
     private float ySpeed;
@@ -26,25 +27,51 @@ public class PlayerMovement : MonoBehaviour
     private bool isJumping;
     private bool isGrounded;
 
+    private void Awake()
+    {
+        playerInput = new Player();
+        characterController = GetComponent<CharacterController>();
+    }
+
+    private void OnEnable()
+    {
+        playerInput.Enable();
+    }
+
+    private void OnDisable()
+    {
+        playerInput?.Disable();
+    }
+
     private void Start()
     {
-        characterController = GetComponent<CharacterController>();
         originalStepOffset = characterController.stepOffset;
+        cameraTransform = Camera.main.transform;
+        playerAudio = GetComponent<AudioSource>();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (playerInput.PlayerMain.Select.triggered)
         {
             Interactable?.Interact(this);
             //playerAudio.PlayOneShot(Click);
         }
 
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    OnApplicationFocus(false);
+        //}
+
         #region Movement
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-        Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
+        Vector2 movementInput = playerInput.PlayerMain.Move.ReadValue<Vector2>();
+        Vector3 movementDirection = new Vector3(movementInput.x, 0f, movementInput.y);
+        //Vector3 movementDirection = (cameraTransform.forward * movementInput.y + cameraTransform.right * movementInput.x);
+        //movementDirection.y = 0f;
+        //Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
         float inputMagnitude = Mathf.Clamp01(movementDirection.magnitude);
 
         if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
@@ -60,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
         #region Jump
         float gravity = Physics.gravity.y * gravityMultiplier;
 
-        if (isJumping && ySpeed > 0 && Input.GetButton("Jump") == false)
+        if (isJumping && ySpeed > 0 && playerInput.PlayerMain.Jump.triggered == false)
         {
             gravity *= 2;
         }
@@ -72,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
             lastGroundedTime = Time.time;
         }
 
-        if (Input.GetButtonDown("Jump"))
+        if (playerInput.PlayerMain.Jump.triggered)
         {
             jumpButtonPressedTime = Time.time;
         }
@@ -116,9 +143,12 @@ public class PlayerMovement : MonoBehaviour
         if (movementDirection != Vector3.zero)
         {
             animator.SetBool("IsMoving", true);
-            //if (!playerAudio.isPlaying)
+            //if (playerAudio != null)
             //{
-            //    //playerAudio.Play();
+            //    if (!playerAudio.isPlaying)
+            //    {
+            //        playerAudio.Play();
+            //    }
             //}
             Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
@@ -128,7 +158,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("IsMoving", false);
             //if (playerAudio.isPlaying)
             //{
-            //    //playerAudio.Stop();
+            //    playerAudio.Stop();
             //}
         }
 
@@ -137,7 +167,7 @@ public class PlayerMovement : MonoBehaviour
             Vector3 velocity = movementDirection * inputMagnitude * jumpHorizontalSpeed;
             velocity.y = ySpeed;
 
-            characterController.Move(velocity * Time.deltaTime);
+            characterController.Move(velocity * Time.deltaTime); //jump
         }
     }
     #endregion
