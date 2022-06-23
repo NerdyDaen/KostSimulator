@@ -62,6 +62,15 @@ public partial class @Player : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Recentre"",
+                    ""type"": ""Value"",
+                    ""id"": ""6eb99900-b9d5-4569-95f3-d08db696372a"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -196,6 +205,28 @@ public partial class @Player : IInputActionCollection2, IDisposable
                     ""action"": ""Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4dee5a51-ef8c-41e6-bcec-53d302f88024"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Recentre"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2fa4b243-4416-48cf-b1c0-349b1c6e8de4"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Recentre"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -208,6 +239,7 @@ public partial class @Player : IInputActionCollection2, IDisposable
         m_PlayerMain_Jump = m_PlayerMain.FindAction("Jump", throwIfNotFound: true);
         m_PlayerMain_Look = m_PlayerMain.FindAction("Look", throwIfNotFound: true);
         m_PlayerMain_Select = m_PlayerMain.FindAction("Select", throwIfNotFound: true);
+        m_PlayerMain_Recentre = m_PlayerMain.FindAction("Recentre", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -271,6 +303,7 @@ public partial class @Player : IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerMain_Jump;
     private readonly InputAction m_PlayerMain_Look;
     private readonly InputAction m_PlayerMain_Select;
+    private readonly InputAction m_PlayerMain_Recentre;
     public struct PlayerMainActions
     {
         private @Player m_Wrapper;
@@ -279,6 +312,7 @@ public partial class @Player : IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_PlayerMain_Jump;
         public InputAction @Look => m_Wrapper.m_PlayerMain_Look;
         public InputAction @Select => m_Wrapper.m_PlayerMain_Select;
+        public InputAction @Recentre => m_Wrapper.m_PlayerMain_Recentre;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMain; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -300,6 +334,9 @@ public partial class @Player : IInputActionCollection2, IDisposable
                 @Select.started -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnSelect;
                 @Select.performed -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnSelect;
                 @Select.canceled -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnSelect;
+                @Recentre.started -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnRecentre;
+                @Recentre.performed -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnRecentre;
+                @Recentre.canceled -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnRecentre;
             }
             m_Wrapper.m_PlayerMainActionsCallbackInterface = instance;
             if (instance != null)
@@ -316,6 +353,9 @@ public partial class @Player : IInputActionCollection2, IDisposable
                 @Select.started += instance.OnSelect;
                 @Select.performed += instance.OnSelect;
                 @Select.canceled += instance.OnSelect;
+                @Recentre.started += instance.OnRecentre;
+                @Recentre.performed += instance.OnRecentre;
+                @Recentre.canceled += instance.OnRecentre;
             }
         }
     }
@@ -326,5 +366,6 @@ public partial class @Player : IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
+        void OnRecentre(InputAction.CallbackContext context);
     }
 }
