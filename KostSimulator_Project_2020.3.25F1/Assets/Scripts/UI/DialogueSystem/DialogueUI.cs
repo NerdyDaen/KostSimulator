@@ -43,7 +43,7 @@ public class DialogueUI : MonoBehaviour
         IsOpen = true;
         dialogueBox.SetActive(true);
         string speaker = dialogueObject.speaker;
-        speakerName.text = speaker;
+        speakerName.text = speaker + " :";
         if (dialogueObject.imageSpeaker != null)
         {
             speakerImageHolder.gameObject.SetActive(true);
