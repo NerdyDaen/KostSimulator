@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Events;
 
 [CreateAssetMenu(menuName = "Dialogue/DialogueObject")]
 
@@ -8,6 +10,7 @@ public class DialogueObject : ScriptableObject
     [SerializeField] private Response[] responses;
     [SerializeField] public string speaker;
     [SerializeField] public Sprite? imageSpeaker;
+    [SerializeField] public UnityEvent afterDialogueEvent;
 
     public string[] Dialogue => dialogue;
 

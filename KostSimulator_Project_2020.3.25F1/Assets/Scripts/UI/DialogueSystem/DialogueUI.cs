@@ -81,9 +81,18 @@ public class DialogueUI : MonoBehaviour
             responseHandler.ShowResponses(dialogueObject.Responses);
             triangleNext.gameObject.SetActive(false);
         }
+
         else
         {
-            CloseDialogueBox();
+            if (dialogueObject.afterDialogueEvent != null)
+            {
+                CloseDialogueBox();
+                dialogueObject.afterDialogueEvent.Invoke();
+            }
+            else
+            {
+                CloseDialogueBox();
+            }
         }
     }
 
