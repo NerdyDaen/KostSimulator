@@ -71,6 +71,24 @@ public partial class @Player : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Point"",
+                    ""type"": ""Value"",
+                    ""id"": ""95c6e143-1fe2-4218-8cd1-e3ac4490d5fb"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""UIClick"",
+                    ""type"": ""Button"",
+                    ""id"": ""5d91a554-bf27-4b1a-8252-880806c78d93"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -155,7 +173,7 @@ public partial class @Player : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""cd8fdd69-a115-46b6-861e-a32dcc4099fb"",
                     ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
+                    ""interactions"": ""MultiTap"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Jump"",
@@ -185,6 +203,61 @@ public partial class @Player : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": ""Arrow"",
+                    ""id"": ""7706995f-9247-468a-9808-061bfcaca6e9"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""9056a0df-d1ad-4459-8087-9c7ef5bb0987"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""f8c154bf-b093-4bb9-81ad-00b4abeea0f2"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""bee6d665-a9d5-4dd3-8fb8-b85021c58aac"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""99478697-b64a-4e58-928a-09ac508f5f94"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""198f14a7-2eaa-4b29-b44d-db63786a9738"",
                     ""path"": ""<Gamepad>/buttonWest"",
@@ -199,6 +272,17 @@ public partial class @Player : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""919122bb-8bb2-43cc-84ab-30e57c6700c9"",
                     ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8ab0e466-dd11-48a0-ba7f-087f9075dff8"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -227,6 +311,39 @@ public partial class @Player : IInputActionCollection2, IDisposable
                     ""action"": ""Recentre"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""161c49c7-f055-4668-84dd-268e4027059a"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Point"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fce1dae9-7b60-4f16-97a5-6c547a58147f"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UIClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9a46fc78-efbb-49fe-98bf-a970ef69f2d0"",
+                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UIClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -240,6 +357,8 @@ public partial class @Player : IInputActionCollection2, IDisposable
         m_PlayerMain_Look = m_PlayerMain.FindAction("Look", throwIfNotFound: true);
         m_PlayerMain_Select = m_PlayerMain.FindAction("Select", throwIfNotFound: true);
         m_PlayerMain_Recentre = m_PlayerMain.FindAction("Recentre", throwIfNotFound: true);
+        m_PlayerMain_Point = m_PlayerMain.FindAction("Point", throwIfNotFound: true);
+        m_PlayerMain_UIClick = m_PlayerMain.FindAction("UIClick", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -304,6 +423,8 @@ public partial class @Player : IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerMain_Look;
     private readonly InputAction m_PlayerMain_Select;
     private readonly InputAction m_PlayerMain_Recentre;
+    private readonly InputAction m_PlayerMain_Point;
+    private readonly InputAction m_PlayerMain_UIClick;
     public struct PlayerMainActions
     {
         private @Player m_Wrapper;
@@ -313,6 +434,8 @@ public partial class @Player : IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_PlayerMain_Look;
         public InputAction @Select => m_Wrapper.m_PlayerMain_Select;
         public InputAction @Recentre => m_Wrapper.m_PlayerMain_Recentre;
+        public InputAction @Point => m_Wrapper.m_PlayerMain_Point;
+        public InputAction @UIClick => m_Wrapper.m_PlayerMain_UIClick;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMain; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -337,6 +460,12 @@ public partial class @Player : IInputActionCollection2, IDisposable
                 @Recentre.started -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnRecentre;
                 @Recentre.performed -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnRecentre;
                 @Recentre.canceled -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnRecentre;
+                @Point.started -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnPoint;
+                @Point.performed -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnPoint;
+                @Point.canceled -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnPoint;
+                @UIClick.started -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnUIClick;
+                @UIClick.performed -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnUIClick;
+                @UIClick.canceled -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnUIClick;
             }
             m_Wrapper.m_PlayerMainActionsCallbackInterface = instance;
             if (instance != null)
@@ -356,6 +485,12 @@ public partial class @Player : IInputActionCollection2, IDisposable
                 @Recentre.started += instance.OnRecentre;
                 @Recentre.performed += instance.OnRecentre;
                 @Recentre.canceled += instance.OnRecentre;
+                @Point.started += instance.OnPoint;
+                @Point.performed += instance.OnPoint;
+                @Point.canceled += instance.OnPoint;
+                @UIClick.started += instance.OnUIClick;
+                @UIClick.performed += instance.OnUIClick;
+                @UIClick.canceled += instance.OnUIClick;
             }
         }
     }
@@ -367,5 +502,7 @@ public partial class @Player : IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
         void OnRecentre(InputAction.CallbackContext context);
+        void OnPoint(InputAction.CallbackContext context);
+        void OnUIClick(InputAction.CallbackContext context);
     }
 }
