@@ -11,6 +11,7 @@ public class TimeController : MonoBehaviour
     [SerializeField] private float startHour;
     [SerializeField] private TextMeshProUGUI timeText;
     [SerializeField] private Light sunLight;
+    [SerializeField] private GameObject DayNightIndicator;
     [SerializeField] private float sunriseHour;
     [SerializeField] private float sunsetHour;
     [SerializeField] private Color dayAmbientLight;
@@ -73,6 +74,8 @@ public class TimeController : MonoBehaviour
         }
 
         sunLight.transform.rotation = Quaternion.AngleAxis(sunLightRotation, Vector3.right);
+        DayNightIndicator.transform.rotation = Quaternion.AngleAxis((sunLightRotation + 61.9f), Vector3.back); 
+        //61.9 diambil dri posisi awal, tergantung gambar (biar pas aja)
     }
 
     private void UpdateLightSettings()

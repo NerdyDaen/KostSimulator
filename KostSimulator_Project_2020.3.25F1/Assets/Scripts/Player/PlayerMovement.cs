@@ -48,6 +48,17 @@ public class PlayerMovement : MonoBehaviour
         originalStepOffset = characterController.stepOffset;
         cameraTransform = Camera.main.transform;
         playerAudio = GetComponent<AudioSource>();
+        Physics.SyncTransforms();
+    }
+
+    public void LoadData (GameData data)
+    {
+        this.transform.position = data.playerPosition;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.playerPosition = this.transform.position;
     }
 
     void Update()

@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class PlayerInventory : MonoBehaviour
 {
+    public GameObject DiamondUI;
+
     public int NumberOfDiamonds { get; private set; }
     public UnityEvent<PlayerInventory> OnDiamondCollected;
     
@@ -12,5 +14,14 @@ public class PlayerInventory : MonoBehaviour
     {
         NumberOfDiamonds++;
         OnDiamondCollected.Invoke(this);
+        
+        //DiamondUI.SetActive(true);
+        //Delay();
+    }
+
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(3f);
+        DiamondUI.SetActive(false);
     }
 }
