@@ -4,31 +4,39 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MainMenu : MonoBehaviour
+public class MainMenu : Menu
 {
+    [Header("Menu Navigations")]
+    [SerializeField] private SaveSlotsMenu saveSlotMenu;
+
+
     [Header("Menu Buttons")]
     [SerializeField] private Button newGameButton;
+    [SerializeField] private Button continueGameButton;
     [SerializeField] private Button loadGameButton;
 
     private void Start()
     {
         if (!DataPersistenceManager.instance.HasGameData())
         {
+            continueGameButton.interactable = false;
             loadGameButton.interactable = false;
         }
     }
 
     public void OnNewGameClicked()
     {
-        DisableMenuButtons();
-        // create a new game - which will initialize our game data
-        DataPersistenceManager.instance.NewGame();
-        //load the gameplay scene - which will in turn save the game because of
-        //OnSceneLoaded() in the DataPersistenceManager
-        SceneManager.LoadSceneAsync("GamePlay");
+        saveSlotMenu.ActivateMenu(false);
+        this.DeactivateMenu();
     }
 
     public void OnLoadGameClicked()
+    {
+        saveSlotMenu.ActivateMenu(true);
+        this.DeactivateMenu();
+    }
+
+    public void OnContinueGameClicked()
     {
         DisableMenuButtons();
         //load the next scene - which will return load the game because of
@@ -39,6 +47,16 @@ public class MainMenu : MonoBehaviour
     private void DisableMenuButtons()
     {
         newGameButton.interactable = false;
-        loadGameButton.interactable = false;
+        continueGameButton.interactable = false;
+    }
+
+    public void ActivateMenu()
+    {
+        this.gameObject.SetActive(true);
+    }
+
+    public void DeactivateMenu()
+    {
+        this.gameObject.SetActive(false);
     }
 }
