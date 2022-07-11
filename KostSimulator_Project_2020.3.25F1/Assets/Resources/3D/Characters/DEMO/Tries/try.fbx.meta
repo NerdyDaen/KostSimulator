@@ -1,0 +1,270 @@
+fileFormatVersion: 2
+guid: 2bc63c25bec200346a2af360c7ea0d90
+ModelImporter:
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      74: 1827226128182048838
+    second: Take 001
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body_All
+    second: {fileID: 2100000, guid: 7be53f43ab43a0743a41b5a2d0a9a1dd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Head_All
+    second: {fileID: 2100000, guid: 665fc7c5e4844514ebea725df6a0ecd2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Left_Ear
+    second: {fileID: 2100000, guid: cd1d03a58ec28354b928b9a885ce2db7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Left_Foot
+    second: {fileID: 2100000, guid: 9bef13293832a8a4fb0fe0003f4ce6d5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Left_Hand
+    second: {fileID: 2100000, guid: 47c13a3a53c74ad4982e04193e14c466, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Right_Ear
+    second: {fileID: 2100000, guid: 0a15c2ff2c777ab48bd8227665b139f4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Right_Foot
+    second: {fileID: 2100000, guid: f567e6b68cb67d94188158d84f6bc689, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Right_Hand
+    second: {fileID: 2100000, guid: 87f37ae879d103c499e9f3524fb6ad2c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tail1
+    second: {fileID: 2100000, guid: a94f11df4ac672041b2680206bcf860b, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chara 3 UV_Body_All_BaseColor
+    second: {fileID: 2800000, guid: 7ee572f3896f4994a8aca42bdc03c111, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chara 3 UV_Body_All_Metalness
+    second: {fileID: 2800000, guid: ee1c879ea54b32a4996937a7cea51894, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chara 3 UV_Body_All_Roughness
+    second: {fileID: 2800000, guid: e256b41285f17ed418d39bd70323f478, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chara 3 UV_Head_All_BaseColor
+    second: {fileID: 2800000, guid: e5f3dc8c87090ce4d8ed6516835210a2, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chara 3 UV_Head_All_Metalness
+    second: {fileID: 2800000, guid: b68ad9c0da1b5e5418792b904d67363e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chara 3 UV_Left_Ear_BaseColor
+    second: {fileID: 2800000, guid: b3a4ea46727d1a34786797d974aaafc5, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chara 3 UV_Left_Ear_Metalness
+    second: {fileID: 2800000, guid: 495b92206be5d6447b44277d86e6a88f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chara 3 UV_Left_Ear_Roughness
+    second: {fileID: 2800000, guid: 75957575bf786a344a807bdf92691f19, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chara 3 UV_Left_Foot_BaseColor
+    second: {fileID: 2800000, guid: 2608fe9b76775e74d837a6d3f8f08a1c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chara 3 UV_Left_Foot_Metalness
+    second: {fileID: 2800000, guid: 47d8827a5d35a0a4191f5246a029a14a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chara 3 UV_Left_Foot_Roughness
+    second: {fileID: 2800000, guid: a438cc62e4fe9764c8581613a79dfcee, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chara 3 UV_Left_Hand_BaseColor
+    second: {fileID: 2800000, guid: d13a07b380e1f6b4fa69a16c2fb8f3a8, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chara 3 UV_Right_Ear_BaseColor
+    second: {fileID: 2800000, guid: 9570f87b31d66c84f85298df35ef65f3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chara 3 UV_Right_Ear_Metalness
+    second: {fileID: 2800000, guid: fe2b8e2180bed244cb0c465c382aed80, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chara 3 UV_Right_Ear_Roughness
+    second: {fileID: 2800000, guid: 7683c7caf091db3488c6a5c7642dd379, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chara 3 UV_Right_Foot_BaseColor
+    second: {fileID: 2800000, guid: cb7b9e5b68889a0459243258f8cfb71c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chara 3 UV_Right_Foot_Metalness
+    second: {fileID: 2800000, guid: 24795901266d3bf4db1e129fedf7e367, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chara 3 UV_Right_Foot_Roughness
+    second: {fileID: 2800000, guid: 0d293e4337610084c9a9bcd5079fcfff, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chara 3 UV_Right_Hand_BaseColor
+    second: {fileID: 2800000, guid: 23277dedb7fab2a40814fa059801934d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chara 3 UV_Right_Hand_Metalness
+    second: {fileID: 2800000, guid: a7cb0ac700323a349a67ab8090e4fe95, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chara 3 UV_Right_Hand_Roughness
+    second: {fileID: 2800000, guid: 99f916089adcdee41a0ea92e79d90ae1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chara 3 UV_Tail1_BaseColor
+    second: {fileID: 2800000, guid: f3d6ec3b8d5baf54f943e9b78bfd8a7d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chara 3 UV_Tail1_Metalness
+    second: {fileID: 2800000, guid: c7b8542a373e51642827b9ed69992171, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chara 3 UV_Tail1_Roughness
+    second: {fileID: 2800000, guid: efb97ab77acd4f649b215b75cf53e11e, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

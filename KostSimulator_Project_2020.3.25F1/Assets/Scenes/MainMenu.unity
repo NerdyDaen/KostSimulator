@@ -3740,6 +3740,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 699531095}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &820503178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6910,6 +6922,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 699531095}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1311018157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7225,8 +7249,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -751, y: 0}
-  m_SizeDelta: {x: 838.16, y: 838.623}
+  m_AnchoredPosition: {x: -722, y: 68}
+  m_SizeDelta: {x: 604.0745, y: 919.73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1408100264
 MonoBehaviour:
@@ -7248,7 +7272,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7f3b05a53a06b944e97fba9a1d478ac2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d1d6d9fd7925f464a8b81c488a79a634, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7324,7 +7348,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tap screen/press E to continue
+  m_text: Tap screen to continue
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6a95ff93b7064374db213a2f297f6512, type: 2}
   m_sharedMaterial: {fileID: -7254257342799358147, guid: 6a95ff93b7064374db213a2f297f6512, type: 2}
