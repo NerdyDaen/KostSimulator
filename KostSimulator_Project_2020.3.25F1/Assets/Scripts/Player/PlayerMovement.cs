@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, IDataPersistence
 {
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float jumpHeight;
@@ -12,6 +14,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private Transform cameraTransform;
     [SerializeField] private DialogueUI dialogueUI;
+
+    [Header("Attributes SO")]
+    [SerializeField] private AttributesScriptableObject playerAttributesSO;
 
     public IInteractable Interactable { get; set; }
     public DialogueUI DialogueUI => dialogueUI;
@@ -26,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     private float? jumpButtonPressedTime;
     private bool isJumping;
     private bool isGrounded;
+    private bool exitPressed = false;
 
     private void Awake()
     {
@@ -54,15 +60,35 @@ public class PlayerMovement : MonoBehaviour
     public void LoadData (GameData data)
     {
         this.transform.position = data.playerPosition;
+        //load the values from our game data into the scriptable object
+        //playerAttributesSO.hunger = data.playerAttributesData.hunger;
+        //playerAttributesSO.stamina = data.playerAttributesData.stamina;
+        //playerAttributesSO.intellectScore = data.playerAttributesData.intellectScore;
+        //playerAttributesSO.frustration = data.playerAttributesData.frustration;
     }
 
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
         data.playerPosition = this.transform.position;
+        //store the values from our scriptable object into the game data
+        //data.playerAttributesData.hunger = playerAttributesSO.hunger;
+        //data.playerAttributesData.stamina = playerAttributesSO.stamina;
+        //data.playerAttributesData.intellectScore = playerAttributesSO.intellectScore;
+        //data.playerAttributesData.frustration = playerAttributesSO.frustration;
     }
 
     void Update()
     {
+        //below code just used to test exiting the scene
+        if (exitPressed)
+        {
+            //save the game anytime before loading a new scene
+            DataPersistenceManager.instance.SaveGame();
+
+            //Load the main menu scene
+            SceneManager.LoadSceneAsync("MainMenu");
+        }
+
         if (playerInput.PlayerMain.Select.triggered)
         {
             Interactable?.Interact(this);
@@ -191,6 +217,18 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = ySpeed * Time.deltaTime;
 
             characterController.Move(velocity);
+        }
+    }
+
+    public void ExitPressed(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            exitPressed = true;
+        }
+        else if (context.canceled)
+        {
+            exitPressed = false;
         }
     }
 

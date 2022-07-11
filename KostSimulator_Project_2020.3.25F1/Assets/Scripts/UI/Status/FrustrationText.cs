@@ -22,7 +22,7 @@ public class FrustrationText : MonoBehaviour, IDataPersistence
         this.frustrationLevel = data.frustrationLevel;
     }
 
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
         data.frustrationLevel = this.frustrationLevel;
     }

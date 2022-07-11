@@ -6,5 +6,5 @@ using UnityEngine;
 public interface IDataPersistence
 {
     void LoadData(GameData data);//calls any game object, called data, only can read data
-    void SaveData(ref GameData data); //ref = so implementing scripts can modify
+    void SaveData(GameData data); //ref = so implementing scripts can modify
 }

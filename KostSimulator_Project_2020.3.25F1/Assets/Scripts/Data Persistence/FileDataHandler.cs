@@ -10,6 +10,7 @@ public class FileDataHandler
     private string dataFileName = ""; //name of the file
     private bool useEncryption = false;
     private readonly string encryptionCodeWord = "erehsawainos";//custom string
+    private readonly string backupExtension = ".bak";
     public FileDataHandler(string dataDirPath, string dataFileName, bool useEncryption) //constructor
     {
         this.dataDirPath = dataDirPath;
@@ -17,7 +18,7 @@ public class FileDataHandler
         this.useEncryption = useEncryption;
     }
 
-    public GameData Load(string profileId) //return game data object
+    public GameData Load(string profileId, bool allowRestoreFromBackup = true) //return game data object
     {
         //base case - if the profileId is null, return right away
         if (profileId == null)
@@ -54,7 +55,24 @@ public class FileDataHandler
            
             catch (Exception e)
             {
-                Debug.LogError("Error occured when trying to load data to file: " + fullPath + "\n" + e);
+                //since we're calling Load(..) recusively, we need to account for the case where
+                //the rollback succeeds, but data is still failing to load for some other reason,
+                //which without this check may cause an infinity recursion loop.
+                if (allowRestoreFromBackup)
+                {
+                    Debug.LogError("Failed to load data file. Attempting to roll back.\n" + e);
+                    bool rollBackSuccess = AttemptRollback(fullPath);
+                    if (rollBackSuccess)
+                    {
+                        //try to load again recursively
+                        loadedData = Load(profileId, false);
+                    }
+                }
+                //if we hit this else block, one possibility is that the backup file is also corrupt
+                else
+                {
+                    Debug.LogError("Error occured then trying to load file at path: " + fullPath + " and backup did not work,\n" + e);
+                }
             }
         }
         return loadedData; //null
@@ -70,6 +88,7 @@ public class FileDataHandler
 
         //use Path.combine to account for different OS's having different path separators
         string fullPath = Path.Combine(dataDirPath, profileId, dataFileName);
+        string backupFilePath = fullPath + backupExtension;
         try //try catch = to check error occured
         {
             //create the directory the file will be written to if it doesn't already exist
@@ -92,10 +111,51 @@ public class FileDataHandler
                     writer.Write(dataToStore);
                 }
             }
+            //verify the newly saved file can be loaded successfully
+            GameData verifiedGameData = Load(profileId);
+            //if the data can be verified, back it up
+            if (verifiedGameData != null)
+            {
+                File.Copy(fullPath, backupFilePath, true);
+            }
+            //otherwise, something went wrong and we should throw an exception 
+            else
+            {
+                throw new Exception("Save file could not be verified and backup could not be created.");
+            }
         }
+
         catch (Exception e)
         {
             Debug.LogError("Error occured when trying to save data to file: " + fullPath + "\n" + e);
+        }
+    }
+
+    public void Delete(string profileId)
+    {
+        //base case - if the profileId is null, return right away
+        if (profileId == null)
+        {
+            return;
+        }
+
+        string fullPath = Path.Combine(dataDirPath, profileId, dataFileName);
+        try
+        {
+            //ensure the data file exists at this path before deleting the directory
+            if (File.Exists(fullPath))
+            {
+                //delete the profile folder and everything within it
+                Directory.Delete(Path.GetDirectoryName(fullPath), true);
+            }
+            else
+            {
+                Debug.LogWarning("Tried to delete profile data, but the data was not found at path: " + fullPath);
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("Failed to delete profile data for profile ID: " + profileId + "at path: " + fullPath + "\n" + e);
         }
     }
 
@@ -185,5 +245,31 @@ public class FileDataHandler
             modifiedData += (char) (data[i] ^ encryptionCodeWord[i % encryptionCodeWord.Length]);
         }
         return modifiedData;
+    }
+
+    private bool AttemptRollback(string fullPath)
+    {
+        bool success = false;
+        string backupFilePath = fullPath + backupExtension;
+        try
+        {
+            //if the file exists, attempt to roll back to it by overwritting the original file
+            if (File.Exists(backupFilePath))
+            {
+                File.Copy(backupFilePath, fullPath, true);
+                success = true;
+                Debug.LogWarning("Had to roll back to backup file at: " + backupFilePath);
+            }
+            //otherwise, we don't yet have a backup file - so there's nothing to roll back to
+            else
+            {
+                throw new Exception("Tried to roll back, but no backup file exists to roll back to");
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("Error occured when trying to roll back to backup file at: " + backupFilePath + "\n" + e);
+        }
+        return success;
     }
 }

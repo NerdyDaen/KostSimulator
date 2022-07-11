@@ -31,7 +31,7 @@ public class DiamondCollectedText : MonoBehaviour, IDataPersistence
         }
     }
 
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
         //no data needed to be saved for this script
     }

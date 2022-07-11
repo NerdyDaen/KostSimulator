@@ -20,12 +20,17 @@ public class DataPersistenceManager : MonoBehaviour //class that keeping track o
     [SerializeField] private string fileName;
     [SerializeField] private bool useEncryption;
 
+    [Header("Auto Saving Configuration")]
+
+    [SerializeField] private float autoSaveTimeSeconds = 60f;
 
     private GameData gameData;
     private List<IDataPersistence> dataPersistenceObjects;
     private FileDataHandler dataHandler;
 
     private string selectedProfileId = "";
+    private Coroutine autoSaveCoroutine;
+
     public static DataPersistenceManager instance { get; private set; } //get public, modify private
 
     private void Awake()
@@ -45,35 +50,30 @@ public class DataPersistenceManager : MonoBehaviour //class that keeping track o
         }
 
         this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, useEncryption); //application.persistencedatapath = default path
-        this.selectedProfileId = dataHandler.GetMostRecentlyUpdatedProfileId();
-        if (overrideSelectedProfileId)
-        {
-            this.selectedProfileId = testSelectedProfileId;
-            Debug.LogWarning("Overrode selected profile id with test id:" + testSelectedProfileId);
-        }
+        InitializeSelectedProfileId();
     }
 
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
-        SceneManager.sceneUnloaded += OnSceneUnloaded;
     }
 
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
-        SceneManager.sceneUnloaded -= OnSceneUnloaded;
     }
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
         LoadGame();
-    }
 
-    public void OnSceneUnloaded(Scene scene)
-    {
-        SaveGame();
+        //start up the auto saving coroutine
+        if (autoSaveCoroutine != null)
+        {
+            StopCoroutine(autoSaveCoroutine);
+        }
+        autoSaveCoroutine = StartCoroutine(AutoSave());
     }
 
     public void ChangeSelectedProfileId(string newProfileId)
@@ -83,6 +83,28 @@ public class DataPersistenceManager : MonoBehaviour //class that keeping track o
 
         //load the game which will use that profile, updating our game data accordingly
         LoadGame();
+    }
+
+    public void DeleteProfileData(string profileId)
+    {
+        //delete the data for this profile id
+        dataHandler.Delete(profileId);
+
+        //initialize the selected profile id
+        InitializeSelectedProfileId();
+
+        //reload the game so that our data matches the newly selected profile id
+        LoadGame();
+    }
+
+    private void InitializeSelectedProfileId()
+    {
+        this.selectedProfileId = dataHandler.GetMostRecentlyUpdatedProfileId();
+        if (overrideSelectedProfileId)
+        {
+            this.selectedProfileId = testSelectedProfileId;
+            Debug.LogWarning("Overrode selected profile id with test id:" + testSelectedProfileId);
+        }
     }
 
     public void NewGame()
@@ -137,7 +159,7 @@ public class DataPersistenceManager : MonoBehaviour //class that keeping track o
         //pass the data to other scripts so they can update it
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
         {
-            dataPersistenceObj.SaveData(ref gameData);
+            dataPersistenceObj.SaveData(gameData);
         }
 
         //timestamp the data so we know when it was last saved
@@ -154,7 +176,8 @@ public class DataPersistenceManager : MonoBehaviour //class that keeping track o
 
     private List <IDataPersistence> FindAllDataPersistenceObjects()
     {
-        IEnumerable<IDataPersistence> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>().OfType<IDataPersistence>();
+        //FindObjectsofType takes in an optional boolean to include inactive gameobjects
+        IEnumerable<IDataPersistence> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>(true).OfType<IDataPersistence>();
         return new List<IDataPersistence>(dataPersistenceObjects);
     }
 
@@ -166,5 +189,15 @@ public class DataPersistenceManager : MonoBehaviour //class that keeping track o
     public Dictionary <string, GameData> GetAllProfilesGameData()
     {
         return dataHandler.LoadAllProfiles();
+    }
+
+    public IEnumerator AutoSave()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(autoSaveTimeSeconds);
+            SaveGame();
+            Debug.Log("Auto Saved Game");
+        }
     }
 }

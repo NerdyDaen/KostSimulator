@@ -11,6 +11,7 @@ public class GameData
     public Vector3 playerPosition;
 
     public SerializableDictionary<string, bool> diamondCollected; //checkpoint
+    public AttributesData playerAttributesData;
 
     //the value defined in this constructor will be the default values
     //the game starts with when there's no data to load
@@ -19,6 +20,7 @@ public class GameData
         this.frustrationLevel = 0; //initialize value to 0, initial value when starting a new game
         playerPosition = Vector3.zero;
         diamondCollected = new SerializableDictionary<string, bool>();
+        playerAttributesData = new AttributesData();
     }
 
     public int GetPercentageComplete() //NOT FIX YET - WILL BE CHANGED TO HOW MANY DAYS PLAYER PASSED
