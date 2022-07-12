@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: MarketDialogue
   m_EditorClassIdentifier: 
   dialogue:
-  - 'Hi, welcome!
-
-    What do you need today?'
+  - Selamat datang!
+  - Mau beli apa hari ini?
   responses: []
   speaker: PATRICK
   imageSpeaker: {fileID: 21300000, guid: a849e232c6f8c294cb57ee30cc79602e, type: 3}
