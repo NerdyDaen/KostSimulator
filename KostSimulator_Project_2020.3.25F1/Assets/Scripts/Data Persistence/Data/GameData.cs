@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class GameData
+public class GameData : ScriptableObject
 {
     public long lastUpdated; //to store serialized time updated every time we save
     public int frustrationLevel; //to store frustation amount
