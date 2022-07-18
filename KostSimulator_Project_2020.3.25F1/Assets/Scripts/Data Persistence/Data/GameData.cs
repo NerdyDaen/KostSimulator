@@ -16,6 +16,7 @@ public class GameData : ScriptableObject
     public GradeSet CourseScore;
     public int GPA;
     public int DayPassed;
+    public int Coin;
 
     public ItemCollection item_Book;
     public ItemCollection item_Shampoo;
@@ -52,6 +53,26 @@ public class GameData : ScriptableObject
         }
     }
 
+    public int CoinStock
+    {
+        get
+        {
+            return Coin;
+        }
+        set
+        {
+            Coin = value;
+            if (Coin > MAX_COIN)
+            {
+                Coin = MAX_COIN;
+            }
+            else if (Coin < 0)
+            {
+                Coin = 0;
+            }
+        }
+    }
+
     public void ResetGame()
     {
         HungerPoint.MaximumStock = 100;
@@ -63,10 +84,12 @@ public class GameData : ScriptableObject
         CourseScore = GradeSet.Default;
         GPA = 0;
         DayPassed = 0;
+        Coin = 1500;
     }
 
     private const int MAX_POINT = 100;
     private const int MAX_GPA = 4;
+    private const int MAX_COIN = 999999;
     #endregion
 
     #region Pure

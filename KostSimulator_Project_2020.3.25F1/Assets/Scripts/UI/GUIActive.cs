@@ -9,6 +9,9 @@ public class GUIActive : MonoBehaviour
     public Transform Player;
     public Transform MainCamera;
     public Transform SubCamera;
+    public GameData Data;
+
+
     #region Public UI
     public void BtnProfile_Handler()
     {
@@ -22,6 +25,22 @@ public class GUIActive : MonoBehaviour
             PnlProfile.gameObject.SetActive(true);
         }
     }
+
+    public void BtnCheckCook_Handler()
+    {
+        if (true)
+        {
+            Data.food_Boba += 1;
+
+            Data.Coin -= 1;
+        }
+        else
+        {
+            PnlNotice.gameObject.SetActive(true);
+            //cooldown
+        }
+    }
+
     #endregion
 
     #region Private UI
@@ -36,6 +55,7 @@ public class GUIActive : MonoBehaviour
     [SerializeField] private Transform PnlCafe;
     [SerializeField] private Transform PnlUniversity;
     [SerializeField] private Transform PnlLaptop;
+    [SerializeField] private Transform PnlNotice;
 
     [Header("Items List")]
     [SerializeField] private SlotHandler[] Items;
