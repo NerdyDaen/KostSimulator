@@ -1,8 +1,49 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+
+[Serializable]
+public struct UnitPoint
+{
+    public float CurrentPoint;
+    public float MaximumPoint;
+
+    public float CurrentStock
+    {
+        get
+        {
+            return CurrentPoint;
+        }
+        set
+        {
+            if (value > MaximumPoint)
+            {
+                value = MaximumPoint;
+            }
+            else if (value < 0)
+            {
+                value = 0;
+            }
+            CurrentPoint = value;
+        }
+    }
+
+    public float MaximumStock
+    {
+        get
+        {
+            return MaximumPoint;
+        }
+        set
+        {
+            CurrentPoint = MaximumPoint = value;
+        }
+    }
+}
+
 
 public class PlayerMovement : MonoBehaviour, IDataPersistence
 {

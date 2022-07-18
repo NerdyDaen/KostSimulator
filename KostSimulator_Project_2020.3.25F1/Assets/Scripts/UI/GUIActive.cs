@@ -37,6 +37,10 @@ public class GUIActive : MonoBehaviour
     [SerializeField] private Transform PnlUniversity;
     [SerializeField] private Transform PnlLaptop;
 
+    [Header("Items List")]
+    [SerializeField] private SlotHandler[] Items;
+    [SerializeField] private SlotHandler[] Foods;
+
     [Header("Panel Sub-Menu List")]
     [SerializeField] private Transform PnlTutorial;
     [SerializeField] private Transform PnlStory;
@@ -44,6 +48,8 @@ public class GUIActive : MonoBehaviour
     [SerializeField] private Transform PnlMarketSell;
     [SerializeField] private Transform PnlCafeBuy;
     [SerializeField] private Transform PnlCafeSell;
+    [SerializeField] private Transform PnlItem;
+    [SerializeField] private Transform PnlFood;
 
     [Header("Text List")]
     [SerializeField] private TextMeshProUGUI[] TxtCoin;
@@ -63,6 +69,23 @@ public class GUIActive : MonoBehaviour
     [SerializeField] private Slider[] SldHungerLevel;
     #endregion
 
+    public void InitializeComponent()
+    {
+        Items = new SlotHandler[Items.Length];
+        for (int i = 0; i < TxtItemQuantity.Length; i++)
+        {
+            Items[i] = PnlItem.GetComponent<SlotHandler>();
+            Items[i].SlotItemAction = ItemActive;
+        }
+
+        Foods = new SlotHandler[Foods.Length];
+        for (int i = 0; i < TxtItemQuantity.Length; i++)
+        {
+            Foods[i] = PnlItem.GetComponent<SlotHandler>();
+            //Foods[i].SlotItemAction = FoodActive;
+        }
+    }
+
     private void DisableMenuPanel()//Close All Panel
     {
         PnlProfile.gameObject.SetActive(false);
@@ -80,5 +103,22 @@ public class GUIActive : MonoBehaviour
         PnlMarketSell.gameObject.SetActive(false);
         PnlCafeBuy.gameObject.SetActive(false);
         PnlCafeSell.gameObject.SetActive(false);
+    }
+
+    private void ItemActive(ItemCollection item)
+    {
+        //TxtItemName.text = item.Name;
+        //TxtItemDesc.text = item.Name;
+    }
+
+    private void FoodActive(FoodCollection food)
+    {
+        //TxtFoodName.text = food.Name;
+        //TxtFoodDesc.text = food.Name;
+    }
+
+    private void Start()
+    {
+        InitializeComponent();
     }
 }

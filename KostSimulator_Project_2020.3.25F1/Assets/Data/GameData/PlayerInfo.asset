@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e38746d14c9ce954f8fc13017f38843e, type: 3}
+  m_Name: PlayerInfo
+  m_EditorClassIdentifier: 
+  HungerPoint:
+    CurrentPoint: 100
+    MaximumPoint: 100
+  FrustrationPoint:
+    CurrentPoint: 0
+    MaximumPoint: 100
+  StaminaPoint:
+    CurrentPoint: 100
+    MaximumPoint: 100
+  CompletitionPoint:
+    CurrentPoint: 0
+    MaximumPoint: 100
+  SemesterPoint: 0
+  CourseScore: 0
+  GPA: 0
+  DayPassed: 0
+  item_Book:
+    Uid: 1
+    Name: Note Book
+    Description: This is a note book to write your lesson.
+    Price: 200
+    Amount: 3
+    IsStack: 1
+  item_Shampoo:
+    Uid: 2
+    Name: Shampoo
+    Description: An anti-dandruff shampoo that can be used as a soap to save money.
+    Price: 150
+    Amount: 3
+    IsStack: 1
+  item_Pencil:
+    Uid: 3
+    Name: Pencil
+    Description: This item is needed to take notes.
+    Price: 50
+    Amount: 50
+    IsStack: 1
+  item_Bag:
+    Uid: 4
+    Name: Big Bag
+    Description: A brand new bag that so modest.
+    Price: 2000
+    Amount: 1
+    IsStack: 0
+  item_Tie:
+    Uid: 5
+    Name: Neck Tie
+    Description: You can't enter the lab if you don't wear a tie.
+    Price: 100
+    Amount: 1
+    IsStack: 0
+  item_Umbrella:
+    Uid: 6
+    Name: Yellow Umbrella
+    Description: If it is raining, use umbrella.
+    Price: 1000
+    Amount: 1
+    IsStack: 0
+  item_Dress:
+    Uid: 7
+    Name: Pink Dress
+    Description: A cute pink dress for woman  but you can't use it.
+    Price: 2000
+    Amount: 1
+    IsStack: 0
+  item_Clothes:
+    Uid: 8
+    Name: Man Clothes
+    Description: A set of clothes for men but you can't use it.
+    Price: 2000
+    Amount: 1
+    IsStack: 0
+  item_BlueShoes:
+    Uid: 9
+    Name: Blue Shoes
+    Description: A cool and casual brand new blue shoes.
+    Price: 1800
+    Amount: 1
+    IsStack: 0
+  item_RedShoes:
+    Uid: 10
+    Name: Red Shoes
+    Description: An old red shoes that used by somebody.
+    Price: 250
+    Amount: 2
+    IsStack: 1
+  food_Boba:
+    Uid: 1
+    Name: Boba
+    Description: No teenager can resist to buy a boba.
+    Price: 15
+    Amount: 0
+    IsStack: 0
+  food_FriedRice:
+    Uid: 2
+    Name: Fried Rice
+    Description: Umm yummy.
+    Price: 10
+    Amount: 99
+    IsStack: 1
+  food_Indomie:
+    Uid: 3
+    Name: Indomie Goreng Special
+    Description: ..
+    Price: 5
+    Amount: 99
+    IsStack: 1
+  food_IceTea:
+    Uid: 4
+    Name: Iced Tea
+    Description: So cool...
+    Price: 2
+    Amount: 99
+    IsStack: 1
+  lastUpdated: 0
+  frustrationLevel: 0
+  playerPosition: {x: 0, y: 0, z: 0}
+  diamondCollected:
+    keys: []
+    values: 
+  playerAttributesData:
+    hunger: 100
+    stamina: 100
+    intellectScore: 0
+    frustration: 0

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
-[CreateAssetMenu(menuName = "Dialogue/DialogueObject")]
+[CreateAssetMenu(menuName = "ScriptableObjects/Dialogue/DialogueObject")]
 
 public class DialogueObject : ScriptableObject
 {
