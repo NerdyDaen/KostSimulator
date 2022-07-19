@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class LoadSceneManager : MonoBehaviour
 {
+    public Transform Player;
+    public Transform MainCamera;
+    public Transform SubCamera;
+
     [Header("Main Settings")]
     public string TargetScene;
 
@@ -16,5 +20,11 @@ public class LoadSceneManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.25f);
         SceneManager.LoadScene(TargetScene);
+    }
+
+    public void EnterKos()
+    {
+        Player.position = new Vector3();
+        SubCamera.position = new Vector3();
     }
 }
