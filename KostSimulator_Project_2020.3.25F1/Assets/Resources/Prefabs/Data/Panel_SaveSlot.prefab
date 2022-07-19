@@ -240,8 +240,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 29f83756d8e8b9841a5277117a2288e6, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: f549c198f1b0cd7428ab6f4085c49785, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 3
 --- !u!114 &6429751925131715920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,6 +339,7 @@ MonoBehaviour:
   frustrationText: {fileID: 0}
   diamondCollectedText: {fileID: 0}
   percentageCompleteText: {fileID: 0}
+  clearButton: {fileID: 0}
 --- !u!1 &6429751925447621605
 GameObject:
   m_ObjectHideFlags: 0
