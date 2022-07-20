@@ -18,5 +18,8 @@ MonoBehaviour:
     Keren!!'
   - Untuk berbicara denganku lagi, menjauh lalu mendekat lagi kepadaku, ok?
   responses: []
-  speaker: CHOPPER
-  imageSpeaker: {fileID: 21300000, guid: 13350d5f9fd3a6442b46bc9f6ab42ddb, type: 3}
+  speaker: MAMI KOST
+  imageSpeaker: {fileID: 21300000, guid: 6f6eef9ff82ea7947b7a6f2fcaf809ae, type: 3}
+  afterDialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []

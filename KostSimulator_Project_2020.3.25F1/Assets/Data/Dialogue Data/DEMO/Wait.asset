@@ -21,5 +21,8 @@ MonoBehaviour:
     dialogueObject: {fileID: 11400000, guid: 8cac1100f46999b448cc2b163c42efb9, type: 2}
   - responseText: Tidak
     dialogueObject: {fileID: 11400000, guid: be89475615ca6064bb4b2351ce1c4a7d, type: 2}
-  speaker: CHOPPER
-  imageSpeaker: {fileID: 21300000, guid: 13350d5f9fd3a6442b46bc9f6ab42ddb, type: 3}
+  speaker: MAMI KOST
+  imageSpeaker: {fileID: 21300000, guid: 6f6eef9ff82ea7947b7a6f2fcaf809ae, type: 3}
+  afterDialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
