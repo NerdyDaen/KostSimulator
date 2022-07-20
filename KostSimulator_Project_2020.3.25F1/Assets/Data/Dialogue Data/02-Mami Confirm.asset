@@ -18,8 +18,8 @@ MonoBehaviour:
   - "You probably\r want to look around before\r confirming to rent it.\r"
   - "Go ahead!\r"
   responses: []
-  speaker: ' MAMI KOST '
-  imageSpeaker: {fileID: 21300000, guid: 3b9090f53f6c70b4c815446634b65926, type: 3}
+  speaker: MAMI KOST
+  imageSpeaker: {fileID: 0}
   afterDialogueEvent:
     m_PersistentCalls:
       m_Calls: []
