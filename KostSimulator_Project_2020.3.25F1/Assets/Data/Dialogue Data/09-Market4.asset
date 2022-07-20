@@ -15,7 +15,6 @@ MonoBehaviour:
   dialogue:
   - "You\u2019re seems quite new here."
   - Coming for that purple university I assume?
-  - Coming for that purple university I assume?
   responses:
   - responseText: 'Yeah. '
     dialogueObject: {fileID: 11400000, guid: ed829bf70071e3844a7f847f1d4ddf02, type: 2}
