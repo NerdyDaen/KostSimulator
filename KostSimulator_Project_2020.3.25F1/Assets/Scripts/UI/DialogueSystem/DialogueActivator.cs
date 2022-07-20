@@ -18,7 +18,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")  && other.TryGetComponent(out PlayerMovement player))
+        if (other.CompareTag("Player")  && other.TryGetComponent(out PlayerActive player))
         {
             PopUp.SetActive(true);
             player.Interactable = this;
@@ -27,7 +27,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player") && other.TryGetComponent(out PlayerMovement player))
+        if (other.CompareTag("Player") && other.TryGetComponent(out PlayerActive player))
         {
             if (player.Interactable is DialogueActivator dialogueActivator && dialogueActivator == this)
             {
@@ -38,7 +38,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable
         }
     }
 
-    public void Interact(PlayerMovement player)
+    public void Interact(PlayerActive player)
     {
         foreach (DialogueResponseEvents responseEvents in GetComponents<DialogueResponseEvents>())
         {

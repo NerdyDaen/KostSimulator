@@ -132,7 +132,7 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
 
         if (playerInput.PlayerMain.Select.triggered)
         {
-            Interactable?.Interact(this);
+            //Interactable?.Interact(this);
             //playerAudio.PlayOneShot(Click);
         }
 
