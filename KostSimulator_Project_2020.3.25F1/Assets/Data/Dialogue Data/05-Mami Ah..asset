@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
   - "Ah. If you need to buy something,\r"
-  - " there\u2019s shop nearby, around north road fork.\r"
+  - "There\u2019s shop nearby, around north road fork.\r"
   - "Have a good shopping then!\r"
   responses: []
   speaker: MAMI KOST

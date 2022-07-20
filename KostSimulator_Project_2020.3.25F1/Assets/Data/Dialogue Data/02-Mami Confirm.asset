@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
   - Glad to know.
-  - "I\u2019m running a little\r room rent around here."
-  - "You probably\r want to look around before\r confirming to rent it.\r"
+  - "I\u2019m running a little room rent around here."
+  - You probably want to look around before confirming to rent it.
   - "Go ahead!\r"
   responses: []
   speaker: MAMI KOST
